@@ -1,10 +1,9 @@
+use crate::cli::OutputFormatCsv;
 use anyhow::Result;
 use csv::Reader;
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 use std::fs;
-
-use crate::opts::OutputFormatCsv;
 
 #[allow(dead_code)]
 #[derive(Debug, Deserialize, Serialize)]

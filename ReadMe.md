@@ -12,3 +12,7 @@
 2. cargo run -- genpass --length 2
 ### for web to image
 1. cargo run -- web2images --url https://github.com/dtolnay/anyhow --output ./output.png
+### for base64 
+1. cargo run -- base64 encode/decode
+2. cargo run -- base64 encode/decode --format standard/urlsafe
+3. cargo run -- base64 encode/decode --format standard/urlsafe -i XXX.txt

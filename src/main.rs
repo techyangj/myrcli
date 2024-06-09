@@ -1,6 +1,7 @@
 use anyhow::Result;
 use clap::Parser;
-use myrcli::{process_csv, process_genpass, Opts, SubCommand};
+use myrcli::{process_csv, process_decode, process_encode, process_genpass};
+use myrcli::{Base64SubCommand, Opts, SubCommand};
 
 // rcli csv -i input.csv -o output.json --header -d ','
 
@@ -27,6 +28,14 @@ fn main() -> Result<()> {
         SubCommand::WebImage(opts) => {
             println!("{:?}", opts);
         }
+        SubCommand::Base64(subcmd) => match subcmd {
+            Base64SubCommand::Encode(opts) => {
+                process_encode(&opts.input, opts.format)?;
+            }
+            Base64SubCommand::Decode(opts) => {
+                process_decode(&opts.input, opts.format)?;
+            }
+        },
     }
     Ok(())
 }
